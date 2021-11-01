@@ -6,6 +6,16 @@ class SingleCharFrequency extends Component {
         this.state = {fileData: ''};
     }
 
+    componentDidUpdate = () => {
+        string = this.props.fileData;
+        var count = {};
+        string.split('').forEach(function(s) {
+            count[s] ? count[s]++ : count[s] = 1;
+        });
+
+        console.log(count);
+    }
+
     render = () => {
         return (
             <div>
