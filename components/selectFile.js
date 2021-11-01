@@ -10,7 +10,7 @@ class SelectFile extends Component {
         e.preventDefault()
         const reader = new FileReader()
         reader.onload = async (e) => { 
-            const text = (e.target.result);
+            var text = (e.target.result);
             this.props.sendFileData(text);
         };
         reader.readAsText(e.target.files[0])

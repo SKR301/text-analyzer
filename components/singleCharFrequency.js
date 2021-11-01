@@ -7,13 +7,13 @@ class SingleCharFrequency extends Component {
     }
 
     componentDidUpdate = () => {
-        string = this.props.fileData;
-        var count = {};
-        string.split('').forEach(function(s) {
-            count[s] ? count[s]++ : count[s] = 1;
+        var string = this.props.fileData.replace(/\s/g, '');
+        var charFrequency = {};
+        string.split('').forEach(function(ch) {
+            charFrequency[ch] ? charFrequency[ch]++ : charFrequency[ch] = 1;
         });
 
-        console.log(count);
+        console.log(charFrequency);
     }
 
     render = () => {

@@ -10,7 +10,6 @@ class App extends Component {
 
     getFileData = (data) => {
         this.setState({fileData: data});
-        console.log("inAPP: "+this.state.fileData);
     }
 
     render = () => {
