@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
 class SelectFile extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {fileData: ''};
     }
 
     showFile = async (e) => {
@@ -13,8 +11,7 @@ class SelectFile extends Component {
         const reader = new FileReader()
         reader.onload = async (e) => { 
             const text = (e.target.result);
-            this.setState({fileData: text});
-            console.log(this.state.fileData);
+            this.props.sendFileData(text);
         };
         reader.readAsText(e.target.files[0])
     }

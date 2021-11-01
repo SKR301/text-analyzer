@@ -1,19 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
 import SelectFile from './components/selectFile';
+import SingleCharFrequency from './components/singleCharFrequency';
 
-export default function App() {
-    return (
-        <SelectFile />
-    );
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {fileData: ''};
+    }
+
+    getFileData = (data) => {
+        this.setState({fileData: data});
+        console.log("inAPP: "+this.state.fileData);
+    }
+
+    render = () => {
+        return (
+            <div>
+                <SelectFile sendFileData = {this.getFileData}/>
+                <SingleCharFrequency fileData = {this.state.fileData}/>
+            </div>
+            
+        );
+    }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+export default App;
