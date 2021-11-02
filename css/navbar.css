@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    justify-content:space-around;
+    list-style-type:none;
+    background-color: grey;
+    padding: 20px;
+}
+
+.link{
+    color: white;
+}

@@ -3,7 +3,8 @@ import SingleCharFrequency from './pages/singleCharFrequency';
 import DoubleCharFrequency from './pages/doubleCharFrequency';
 import VowelVSConsonant from './pages/vowelVSconsonant';
 import Home from './pages/home';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import './css/navbar.css';
 
 class App extends Component {
     constructor(props) {
@@ -21,11 +22,11 @@ class App extends Component {
         return (
             <Router>
                 <div>
-                    <ul>
-                        <li><Link to = '/home'>Home</Link></li>
-                        <li><Link to = '/singleCharFrequency'>Single Character</Link></li>
-                        <li><Link to = '/doubleCharFrequency'>Double Character</Link></li>
-                        <li><Link to = '/vowelVSConsonant'>Vowel-Consonant</Link></li>
+                    <ul className='container'> 
+                        <li><Link className='link'  to = '/home'>Home</Link></li>
+                        <li><Link className='link' to = '/singleCharFrequency'>Single Character</Link></li>
+                        <li><Link className='link' to = '/doubleCharFrequency'>Double Character</Link></li>
+                        <li><Link className='link' to = '/vowelVSConsonant'>Vowel-Consonant</Link></li>
                     </ul>
                 </div>
                 <Switch>
