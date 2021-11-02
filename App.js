@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import SelectFile from './components/selectFile';
-import SingleCharFrequency from './components/singleCharFrequency';
+import SingleCharFrequency from './pages/singleCharFrequency';
 import DoubleCharFrequency from './pages/doubleCharFrequency';
 import VowelVSConsonant from './pages/vowelVSconsonant';
-import { Route, Link, BrowserRouter, Redirect } from 'react-router-dom'
+import Home from './pages/home';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 class App extends Component {
     constructor(props) {
@@ -19,19 +19,22 @@ class App extends Component {
 
     render = () => {
         return (
-            // <div>
-            //     <SelectFile sendFileData = {this.getFileData}/>
-            //     <SingleCharFrequency fileData = {this.state.fileData}/>
-            // </div>
-            < BrowserRouter >
+            <Router>
                 <div>
-                    {/* <Route exact path="/" component={SelectFile} sendFileData ={this.getFileData}/> */}
-                    <Route exact path="/" component = {() => (<SelectFile sendFileData ={this.getFileData}/>)}/>
-                    <Route path="/singleCharFreq" component={SingleCharFrequency} fileData = {this.state.fileData}/>
-                    <Route path="/doubleCharFreq" component={DoubleCharFrequency}/>
-                    <Route path="/VowelVSConsonant" component={VowelVSConsonant}/>
+                    <ul>
+                        <li><Link to = '/home'>Home</Link></li>
+                        <li><Link to = '/singleCharFrequency'>Single Character</Link></li>
+                        <li><Link to = '/doubleCharFrequency'>Double Character</Link></li>
+                        <li><Link to = '/vowelVSConsonant'>Vowel-Consonant</Link></li>
+                    </ul>
                 </div>
-         </ BrowserRouter >
+                <Switch>
+                    <Route path="/home" component={Home}/>
+                    <Route path='/singleCharFrequency' component={SingleCharFrequency}/>
+                    <Route path='/doubleCharFrequency' component={DoubleCharFrequency}/>
+                    <Route path='/vowelVSConsonant' component={VowelVSConsonant}/>
+                </Switch>
+            </Router>
         );
     }
 }
