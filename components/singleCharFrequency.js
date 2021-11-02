@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 
@@ -22,29 +21,25 @@ class SingleCharFrequency extends Component {
     }
 
     _plotChart = (charFrequency) => {
-        let chart = am4core.create("chartdiv", am4charts.XYChart);
-        chart.data = []
+        var chart = am4core.create("chartdiv", am4charts.XYChart);
         charFrequency.forEach(function (element) {
             chart.data.push({
-                "alphabet": element[0],
+                "character": element[0],
                 "count": element[1]
             });
         });
-        console.log(chart.data);
 
-        var alphabetAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-        alphabetAxis.dataFields.category = "Character";
-        alphabetAxis.title.text = "Characters";
+        let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "character";
+        categoryAxis.title.text = "Characters";
 
-        var countAxis = chart.yAxes.push(new am4charts.ValueAxis());
-        countAxis.title.text = "Character Count";
+        let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.title.text = "Character Count";
 
         var series = chart.series.push(new am4charts.ColumnSeries());
-        series.dataFields.valueY = "characterCount";
+        series.dataFields.valueY = "count";
         series.dataFields.categoryX = "character";
-        series.name = "singleCharFrequency";
-
-        chart.legend = new am4charts.Legend();
+        series.name = "Single Character Frequency Count";
     }
 
     render = () => {
@@ -52,7 +47,7 @@ class SingleCharFrequency extends Component {
             <div>
                 <h1>Single char frequency</h1>
                 <p>{this.props.fileData}</p>
-                <div id="chartdiv"></div>
+                <div id="chartdiv" style={{flex: 1}}></div>
             </div>
         );
     }
