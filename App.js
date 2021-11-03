@@ -9,13 +9,6 @@ import './css/navbar.css';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {fileData: ''};
-    }
-
-    getFileData = (data) => {
-        this.setState({fileData: data});
-        console.log(this.state.fileData);
-        return <Redirect to="/singleCharFreq"/>
     }
 
     render = () => {

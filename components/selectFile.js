@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class SelectFile extends Component {
-
     constructor(props) {
         super(props);
     }
@@ -12,6 +11,7 @@ class SelectFile extends Component {
         reader.onload = async (e) => { 
             var text = (e.target.result);
             this.props.sendFileData(text);
+
         };
         reader.readAsText(e.target.files[0])
     }
