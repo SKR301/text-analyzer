@@ -45,7 +45,7 @@ class SingleCharFrequency extends Component {
         series.name = "Single Character Frequency Count";
 
         series.columns.template.tooltipText = "\n({categoryX},{valueY})";
-        chart.tooltip.background.fill = am4core.color("#67b7dc");
+        chart.tooltip.background.fill = am4core.color("#ffffff");
         chart.tooltip.label.fontSize = 20;
         chart.tooltip.label.textAlign = "middle";
     }
