@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 class SingleCharFrequency extends Component {
     constructor(props) {
         super(props);
+        this.state = this.props.location.state;
+        console.log(this.state);
     }
 
     componentDidMount = () => {

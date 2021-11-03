@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import SelectFile from '../components/selectFile';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 
 class Home extends Component {
     constructor(props) {
         super(props);
+        this.state = {fileData : ''};
     }
 
     _getFileData = (data) => {
         this.setState({fileData: data});
-        console.log(data);
-        return <Redirect to='/singleCharFrequency' />
     }
 
     render = () => {
+        if(this.state.fileData != ''){
+            return (
+                <Redirect to={{
+                    pathname: '/singleCharFrequency',
+                    state: { fileData: this.state.fileData }
+                }} />
+            );
+        }
+        
         return (
             <div>
                 <SelectFile sendFileData={this._getFileData}/>
