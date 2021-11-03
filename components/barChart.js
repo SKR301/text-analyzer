@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 
-class SingleCharBarChart extends Component {
+class CharBarChart extends Component {
     constructor(props){
         super(props);
-        this.state = {charFrequency: ''};
+        this.state = {charFreq: ''};
     }
 
-    plotChart = (charFrequency) => {
+    plotChart = (charFreq) => {
         var chart = am4core.create("chartdiv", am4charts.XYChart);
         
-        charFrequency.forEach(function (value, key) {
+        charFreq.forEach(function (value, key) {
             chart.data.push({
                 "character": key,
                 "count": value
@@ -33,7 +33,7 @@ class SingleCharBarChart extends Component {
         series.dataFields.categoryX = "character";
         series.name = "Single Character Frequency Count";
 
-        series.columns.template.tooltipText = "(count: [{valueY}:bold])[/]";
+        series.columns.template.tooltipText = "(count: {valueY})";
     }
 
     render = () => {
@@ -45,4 +45,4 @@ class SingleCharBarChart extends Component {
     }
 }
 
-export default SingleCharBarChart;
+export default CharBarChart;

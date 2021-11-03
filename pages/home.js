@@ -16,7 +16,7 @@ class Home extends Component {
         if(this.state.fileData != ''){
             return (
                 <Redirect to={{
-                    pathname: '/singleCharFrequency',
+                    pathname: '/charFrequency',
                     state: { fileData: this.state.fileData }
                 }} />
             );

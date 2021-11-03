@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-class VowelVSConsonant extends Component {
+class PairFrequency extends Component {
 
     render = () => {
         return (
             <div>
-                <h1>Vowel VS Consonant</h1>
+                <h1>Pair frequency</h1>
             </div>
         );
     }
 }
 
-export default VowelVSConsonant;
+export default PairFrequency;
