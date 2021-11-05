@@ -14,10 +14,6 @@ class charFrequency extends Component {
         this.changeCharFreq(this.getcharFreq(this.state.fileData.replace(/\s/g, '')));
     }
 
-    // componentDidUpdate = () => {
-    //     console.log("update");
-    // }
-
     getcharFreq(string){
         var charFreq = new Map();
         string.split('').forEach(function(ch) {
@@ -36,21 +32,29 @@ class charFrequency extends Component {
         const alpha=()=>{
             var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z]/.test(char));
             this.changeCharFreq(this.getcharFreq(str.join('')));
+            document.getElementById('characters').checked = false;
+            document.getElementById('count').checked = false;
         }
         const alphanum=()=>{
-            document.getElementById('none').checked = true;
             var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z0-9]/.test(char));
             this.changeCharFreq(this.getcharFreq(str.join('')));
+            document.getElementById('characters').checked = false;
+            document.getElementById('count').checked = false;
+            document.getElementById('none').checked = true;
         }
         const allchar=()=>{
-            document.getElementById('none').checked = true;
             var str = this.state.fileData.replace(/\s/g, '');
             this.changeCharFreq(this.getcharFreq(str));
+            document.getElementById('none').checked = true;
+            document.getElementById('characters').checked = false;
+            document.getElementById('count').checked = false;
         }
         const lower=()=>{
             if(document.getElementById('alpha').checked){
                 var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-z]/.test(char));
                 this.changeCharFreq(this.getcharFreq(str.join('')));
+                document.getElementById('characters').checked = false;
+                document.getElementById('count').checked = false;
             } else {
                 console.log('Only applicable for alpha');
                 document.getElementById('lower').checked = false;
@@ -60,6 +64,8 @@ class charFrequency extends Component {
             if(document.getElementById('alpha').checked){
                 var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[A-Z]/.test(char));
                 this.changeCharFreq(this.getcharFreq(str.join('')));
+                document.getElementById('characters').checked = false;
+                document.getElementById('count').checked = false;
             } else {
                 console.log('Only applicable for alpha');
                 document.getElementById('upper').checked = false;
@@ -69,6 +75,8 @@ class charFrequency extends Component {
             if(document.getElementById('alpha').checked){
                 var alphaStr = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z]/.test(char));
                 this.changeCharFreq(this.getcharFreq(alphaStr.join('').toLowerCase()));
+                document.getElementById('characters').checked = false;
+                document.getElementById('count').checked = false;
             } else {
                 console.log('Only applicable for alpha');
                 document.getElementById('ignore').checked = false;
@@ -86,10 +94,10 @@ class charFrequency extends Component {
             this.changeCharFreq(this.getcharFreq(str.join('')));
         }
         const characters=()=>{
-            console.log("characters");
+            this.changeCharFreq(new Map([...this.state.charFreq.entries()].sort()));
         }
         const count=()=>{
-            console.log("count");
+            this.changeCharFreq(new Map([...this.state.charFreq.entries()].sort((a, b) => b[1] - a[1])));
         }
         
         return (
