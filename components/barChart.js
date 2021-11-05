@@ -18,8 +18,6 @@ class CharBarChart extends Component {
             });
         });
 
-        console.log(chart.data);
-
         let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.dataFields.category = "character";
         categoryAxis.title.text = "Characters";
