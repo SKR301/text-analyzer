@@ -10,20 +10,23 @@ class charFrequency extends Component {
         } else {
             this.state = {fileData: this.props.history.location.data.fileData, charFreq: ''};
         }
-        this.getcharFreq = this.getcharFreq.bind(this);
+        this.getCharFreq = this.getCharFreq.bind(this);
     }
 
     componentDidMount = () => {
-        this.setState({fileData: this.state.fileData, charFreq: this.getcharFreq(this.state.fileData.replace(/\s/g, ''))});
-        document.getElementById('none').checked = true;
-        document.getElementById('allchar').checked = true;
+        if(this.state.fileData != ''){
+            var str = this.state.fileData.replace(/\s/g, '');
+            this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str)});
+            document.getElementById('none').checked = true;
+            document.getElementById('allchar').checked = true;
+        }
     }
 
     componentDidUpdate = () => {
         new BarChart().plotChart(this.state.charFreq);
     }
 
-    getcharFreq(string){
+    getCharFreq(string){
         var charFreq = new Map();
         string.split('').forEach(function(ch) {
             charFreq.has(ch) ? charFreq.set(ch, charFreq.get(ch)+1) : charFreq.set(ch, 1) ;
@@ -35,20 +38,20 @@ class charFrequency extends Component {
     render = () => {
         const alpha=()=>{
             var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z]/.test(char));
-            this.setState({fileData: this.state.fileData, charFreq: this.getcharFreq(str.join(''))});
+            this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join(''))});
             document.getElementById('characters').checked = false;
             document.getElementById('count').checked = false;
         }
         const alphanum=()=>{
             var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z0-9]/.test(char));
-            this.setState({fileData: this.state.fileData, charFreq: this.getcharFreq(str.join(''))});
+            this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join(''))});
             document.getElementById('characters').checked = false;
             document.getElementById('count').checked = false;
             document.getElementById('none').checked = true;
         }
         const allchar=()=>{
             var str = this.state.fileData.replace(/\s/g, '');
-            this.setState({fileData: this.state.fileData, charFreq: this.getcharFreq(str)});
+            this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str)});
             document.getElementById('none').checked = true;
             document.getElementById('characters').checked = false;
             document.getElementById('count').checked = false;
@@ -56,7 +59,7 @@ class charFrequency extends Component {
         const lower=()=>{
             if(document.getElementById('alpha').checked){
                 var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-z]/.test(char));
-                this.setState({fileData: this.state.fileData, charFreq: this.getcharFreq(str.join(''))});
+                this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join(''))});
                 document.getElementById('characters').checked = false;
                 document.getElementById('count').checked = false;
             } else {
@@ -67,7 +70,7 @@ class charFrequency extends Component {
         const upper=()=>{
             if(document.getElementById('alpha').checked){
                 var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[A-Z]/.test(char));
-                this.setState({fileData: this.state.fileData, charFreq: this.getcharFreq(str.join(''))});
+                this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join(''))});
                 document.getElementById('characters').checked = false;
                 document.getElementById('count').checked = false;
             } else {
@@ -78,7 +81,7 @@ class charFrequency extends Component {
         const ignore=()=>{
             if(document.getElementById('alpha').checked){
                 var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z]/.test(char));
-                this.setState({fileData: this.state.fileData, charFreq: this.getcharFreq(str.join('').toLowerCase())});
+                this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join('').toLowerCase())});
                 document.getElementById('characters').checked = false;
                 document.getElementById('count').checked = false;
             } else {
@@ -95,7 +98,7 @@ class charFrequency extends Component {
             } else {
                 str = this.state.fileData.replace(/\s/g, '').split('');
             }
-            this.setState({fileData: this.state.fileData, charFreq: this.getcharFreq(str.join(''))});
+            this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join(''))});
         }
         const characters=()=>{
             this.setState({fileData: this.state.fileData, charFreq: new Map([...this.state.charFreq.entries()].sort())});
