@@ -11,6 +11,8 @@ class charFrequency extends Component {
 
     componentDidMount = () => {
         this.setState({fileData: this.state.fileData, charFreq: this.getcharFreq(this.state.fileData.replace(/\s/g, ''))});
+        document.getElementById('none').checked = true;
+        document.getElementById('allchar').checked = true;
     }
 
     componentDidUpdate = () => {

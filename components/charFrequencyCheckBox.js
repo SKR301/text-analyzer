@@ -10,7 +10,7 @@ class charFrequencyCheckBox extends Component {
             <div>
                 <b>Character Filter:</b>
                 <div id = 'characters'>
-                    <input type = 'radio' name = 'characters' id = 'alpha' onChange ={this.props.charFilter.alpha} />Only Alphabets
+                    <input type = 'radio' name = 'characters' id = 'alpha' onChange ={this.props.charFilter.alpha}/>Only Alphabets
                     <input type = 'radio' name = 'characters' id = 'alphanum' onChange ={this.props.charFilter.alphanum} />Alphabets+Digits
                     <input type = 'radio' name = 'characters' id = 'allchar' onChange ={this.props.charFilter.allchar} />All
                 </div>
@@ -19,7 +19,7 @@ class charFrequencyCheckBox extends Component {
                     <input type = 'radio' name = 'case' id = 'lower' onChange ={this.props.caseFilter.lower} />Only Lower
                     <input type = 'radio' name = 'case' id = 'upper' onChange ={this.props.caseFilter.upper} />Only Upper
                     <input type = 'radio' name = 'case' id = 'ignore' onChange ={this.props.caseFilter.ignore} />Ignore case
-                    <input type = 'radio' name = 'case' id = 'none' onChange ={this.props.caseFilter.none} />None
+                    <input type = 'radio' name = 'case' id = 'none' onChange ={this.props.caseFilter.none}/>None
                 </div>
                 <b>Sort By:</b>
                 <div id = 'sort'>
