@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 
-class CharBarChart extends Component {
+class BarChart extends Component {
     constructor(props){
         super(props);
         this.state = {charFreq: ''};
@@ -43,4 +43,4 @@ class CharBarChart extends Component {
     }
 }
 
-export default CharBarChart;
+export default BarChart;

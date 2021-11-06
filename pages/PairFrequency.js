@@ -8,6 +8,8 @@ class PairFrequency extends Component {
         } else {
             this.state = {fileData: this.props.history.location.data.fileData, charFreq: ''};
         }
+
+        console.log(this.state.fileData);
     }
 
     render = () => {

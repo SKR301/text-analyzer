@@ -24,14 +24,14 @@ class App extends Component {
                     <ul className='container'> 
                         <li><Link className='link'  to={{ pathname: '/home', data: {sendFileData: this.getFileData} }}>Home</Link></li>
                         <li><Link className='link'  to={{ pathname: '/charFrequency', data: {fileData: this.state.fileData} }}>Character Frequency</Link></li>
-                        <li><Link className='link' to = '/doubleCharFrequency'>Pair Frequency</Link></li>
-                        <li><Link className='link' to = '/vowelVSConsonant'>Vowel-Consonant</Link></li>
+                        <li><Link className='link' to={{ pathname: '/pairFrequency', data: {fileData: this.state.fileData} }}>Pair Frequency</Link></li>
+                        <li><Link className='link' to={{ pathname: '/vowelVSconsonant', data: {fileData: this.state.fileData} }}>Vowel-Consonant</Link></li>
                     </ul>
                 </div>
                 <Switch>
                     <Route path="/home" component={Home}/>
                     <Route path='/charFrequency' component={CharFrequency}/>
-                    <Route path='/doubleCharFrequency' component={DoubleCharFrequency}/>
+                    <Route path='/pairFrequency' component={DoubleCharFrequency}/>
                     <Route path='/vowelVSConsonant' component={VowelVSConsonant}/>
                 </Switch>
             </Router>
