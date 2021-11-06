@@ -5,7 +5,11 @@ import CharFrequencyCheckBox from '../components/charFrequencyCheckBox';
 class charFrequency extends Component {
     constructor(props) {
         super(props);
-        this.state = {fileData: this.props.history.location.data.fileData, charFreq: ''};
+        if(this.props.history.location.data == undefined){
+            this.state = {fileData: '', charFreq: ''};
+        } else {
+            this.state = {fileData: this.props.history.location.data.fileData, charFreq: ''};
+        }
         this.getcharFreq = this.getcharFreq.bind(this);
     }
 
@@ -99,7 +103,6 @@ class charFrequency extends Component {
         const count=()=>{
             this.setState({fileData: this.state.fileData, charFreq: new Map([...this.state.charFreq.entries()].sort((a, b) => b[1] - a[1]))});
         }
-        
         return (
             <div>
                 <h1>Character frequency</h1>
