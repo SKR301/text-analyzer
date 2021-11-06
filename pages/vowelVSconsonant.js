@@ -17,6 +17,7 @@ class VowelVSConsonant extends Component {
         if(this.state.fileData != ''){
             var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z]/.test(char));
             this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join(''))});
+            document.getElementById('ignore').checked = true;
         }
     }
     
