@@ -6,9 +6,10 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {fileData : ''};
+        this.getFileData = this.getFileData.bind();
     }
 
-    _getFileData = (data) => {
+    getFileData = (data) => {
         this.setState({fileData: data});
     }
 
@@ -24,7 +25,7 @@ class Home extends Component {
         
         return (
             <div>
-                <SelectFile sendFileData={this._getFileData}/>
+                <SelectFile sendFileData={this.getFileData}/>
             </div>
         );
     }

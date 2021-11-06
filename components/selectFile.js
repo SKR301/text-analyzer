@@ -11,7 +11,6 @@ class SelectFile extends Component {
         reader.onload = async (e) => { 
             var text = (e.target.result);
             this.props.sendFileData(text);
-
         };
         reader.readAsText(e.target.files[0])
     }
