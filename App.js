@@ -10,25 +10,20 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {fileData: ''};
+        this.getFileData = this.getFileData.bind(this);
+    }
+
+    getFileData = (data) => {
+        this.setState({fileData: data});
     }
 
     render = () => {
-        // if(this.state.fileData != ''){
-        //     // return (
-        //     //     <Redirect to={{
-        //     //         pathname: '/charFrequency',
-        //     //         state: { fileData: this.state.fileData }
-        //     //     }} />
-        //     // );
-        // }
-
         return (
             <Router>
                 <div>
                     <ul className='container'> 
-                        {/* <li><Link className='link'  to = '/home' >Home</Link></li> */}
-                        <li><Link className='link'  to={{ pathname: '/home', state: { fileData: 'bar'} }} >Home</Link></li>
-                        <li><Link className='link' to = '/charFrequency'>Character Frequency</Link></li>
+                        <li><Link className='link'  to={{ pathname: '/home', data: {sendFileData: this.getFileData} }}>Home</Link></li>
+                        <li><Link className='link'  to={{ pathname: '/charFrequency', data: {fileData: this.state.fileData} }}>Character Frequency</Link></li>
                         <li><Link className='link' to = '/doubleCharFrequency'>Pair Frequency</Link></li>
                         <li><Link className='link' to = '/vowelVSConsonant'>Vowel-Consonant</Link></li>
                     </ul>

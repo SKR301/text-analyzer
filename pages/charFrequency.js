@@ -5,7 +5,7 @@ import CharFrequencyCheckBox from '../components/charFrequencyCheckBox';
 class charFrequency extends Component {
     constructor(props) {
         super(props);
-        this.state = {fileData: this.props.location.state.fileData, charFreq: ''};
+        this.state = {fileData: this.props.history.location.data.fileData, charFreq: ''};
         this.getcharFreq = this.getcharFreq.bind(this);
     }
 
