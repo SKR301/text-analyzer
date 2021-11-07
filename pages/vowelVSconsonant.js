@@ -46,14 +46,23 @@ class VowelVSConsonant extends Component {
             var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z]/.test(char));
             this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join('').toLowerCase())});
         }
-        return (
-            <div>
-                <h1>Vowel VS Consonant</h1>
-                <VowelConsonantCheckBox caseFilter={{lower,upper,ignore}} />
-                <PieChart />
-                <p>{this.state.fileData}</p>
-            </div>
-        );
+        if(this.state.fileData == ''){
+            return (
+                <div>
+                    <h1>Vowel VS Consonant</h1>
+                    <p>No file selected...</p><p>Go To Home to select file</p>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <h1>Vowel VS Consonant</h1>
+                    <VowelConsonantCheckBox caseFilter={{lower,upper,ignore}} />
+                    <PieChart />
+                    <p>{this.state.fileData}</p>
+                </div>
+            );
+        }
     }
 }
 

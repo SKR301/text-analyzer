@@ -17,9 +17,9 @@ class pairFrequency extends Component {
         if(this.state.fileData != ''){
             var str = this.state.fileData.replace(/\s/g, '');
             this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str)});
+            document.getElementById('none').checked = true;
+            document.getElementById('firstCharSelect').style.visibility = 'hidden';
         }
-        document.getElementById('none').checked = true;
-        document.getElementById('firstCharSelect').style.visibility = 'hidden';
     }
 
     componentDidUpdate = () => {
@@ -66,15 +66,23 @@ class pairFrequency extends Component {
         const count=()=>{
             this.setState({fileData: this.state.fileData, charFreq: new Map([...this.state.charFreq.entries()].sort((a, b) => b[1] - a[1]))});
         }
-
-        return (
-            <div>
-                <h1>Character frequency</h1>
-                <PairFrequencyCheckBox charFilter={{first, none}} sort={{characters, count}} sendFirstChar={getFirstChar}/>
-                <BarChart />
-                <p>{this.state.fileData}</p>
-            </div>
-        );
+        if(this.state.fileData == ''){
+            return (
+                <div>
+                    <h1>Pair frequency</h1>
+                    <p>No file selected...</p><p>Go To Home to select file</p>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <h1>Pair frequency</h1>
+                    <PairFrequencyCheckBox charFilter={{first, none}} sort={{characters, count}} sendFirstChar={getFirstChar}/>
+                    <BarChart />
+                    <p>{this.state.fileData}</p>
+                </div>
+            );
+        }
     }
 }
 
