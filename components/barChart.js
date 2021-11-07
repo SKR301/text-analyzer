@@ -31,7 +31,7 @@ class BarChart extends Component {
         series.dataFields.categoryX = "character";
         series.name = "Single Character Frequency Count";
 
-        series.columns.template.tooltipText = "(count: {valueY})";
+        series.columns.template.tooltipText = "character: {categoryX}\ncount: {valueY}";
     }
 
     render = () => {
