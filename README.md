@@ -3,6 +3,8 @@ A web app to analyze input text
 
   ## Table of Content
   - [Technologies](#technologies)
+  - [Setup](#setup)
+  - [Working](#working)
   - [Screenshots](#screenshots)
   - [Contributors](#contributors)
   
