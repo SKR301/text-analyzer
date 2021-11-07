@@ -57,12 +57,22 @@ class pairFrequency extends Component {
         }
         const getFirstChar=(firstChar)=>{
             this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(this.state.fileData, firstChar)});
+            document.getElementById('count').checked = false;
+            document.getElementById('characters').checked = false;
+        }
+        const characters=()=>{
+            // console.log('characters');
+            this.setState({fileData: this.state.fileData, charFreq: new Map([...this.state.charFreq.entries()].sort())});
+        }
+        const count=()=>{
+            // console.log('count');
+            this.setState({fileData: this.state.fileData, charFreq: new Map([...this.state.charFreq.entries()].sort((a, b) => b[1] - a[1]))});
         }
 
         return (
             <div>
                 <h1>Character frequency</h1>
-                <PairFrequencyCheckBox charFilter={{first, none}} sendFirstChar={getFirstChar}/>
+                <PairFrequencyCheckBox charFilter={{first, none}} sort={{characters, count}} sendFirstChar={getFirstChar}/>
                 <BarChart />
                 <p>{this.state.fileData}</p>
             </div>

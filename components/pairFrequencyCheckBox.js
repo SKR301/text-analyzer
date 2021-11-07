@@ -21,6 +21,11 @@ class charFrequencyCheckBox extends Component {
                     <input type = 'radio' name = 'characters' id = 'firstChar' onChange ={this.props.charFilter.first}/>First Character
                     <input type = 'radio' name = 'characters' id = 'none' onChange ={this.props.charFilter.none} />None
                 </div>
+                <b>Sort By:</b>
+                <div id = 'sort'>
+                    <input type = 'radio' name = 'sort' id = 'characters' onChange ={this.props.sort.characters} />Characters
+                    <input type = 'radio' name = 'sort' id = 'count' onChange ={this.props.sort.count} />Count
+                </div>
                 <Select id = 'firstCharSelect' options={getAlphabetsOption()} onChange={(opt)=>this.props.sendFirstChar(opt.value)}/>
             </div>
         );
