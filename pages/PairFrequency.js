@@ -61,11 +61,9 @@ class pairFrequency extends Component {
             document.getElementById('characters').checked = false;
         }
         const characters=()=>{
-            // console.log('characters');
             this.setState({fileData: this.state.fileData, charFreq: new Map([...this.state.charFreq.entries()].sort())});
         }
         const count=()=>{
-            // console.log('count');
             this.setState({fileData: this.state.fileData, charFreq: new Map([...this.state.charFreq.entries()].sort((a, b) => b[1] - a[1]))});
         }
 
