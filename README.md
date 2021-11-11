@@ -15,7 +15,7 @@ A web app to analyze input text
   - amchart v4.10.22
   
   ## Setup
-  How the program works:-
+  How to setup the program:-
   1. Clone the repo.
   2. Open command prompt and type `npm install` to install all requirements.
   3. After all requirements are met, type `npm start` (with web).
