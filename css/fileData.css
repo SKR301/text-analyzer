@@ -1,0 +1,11 @@
+.fileData{
+    word-wrap: break-word;
+    padding: 50px;
+    border-style: solid;
+    border-radius: 50px;
+    width: 1500px;
+    margin-top: 100px;
+    color: #000000;
+    border-color: #59CBE8;
+    background-color: #a7d8e4;
+}

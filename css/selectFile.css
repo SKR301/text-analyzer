@@ -1,4 +1,9 @@
-.selectFileBtn{
-    background-color: black;
-    display: inline-block;
+.selectFileContainer{
+    text-align: center;
+    width: 1500px;
 }
+
+.selectFileBtn{
+    font-size: large;
+}
+

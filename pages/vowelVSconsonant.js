@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import VowelConsonantCheckBox from '../components/vowelConsonantCheckBox';
 import PieChart from '../components/pieChart';
+import VowelConsonantCheckBox from '../components/vowelConsonantCheckBox';
+import '../css/component.css';
+import '../css/fileData.css';
 
 class VowelVSConsonant extends Component {
     constructor(props) {
@@ -48,18 +50,18 @@ class VowelVSConsonant extends Component {
         }
         if(this.state.fileData == ''){
             return (
-                <div>
+                <div className = 'component'>
                     <h1>Vowel VS Consonant</h1>
                     <p>No file selected...</p><p>Go To Home to select file</p>
                 </div>
             );
         } else {
             return (
-                <div>
+                <div className = 'component'>
                     <h1>Vowel VS Consonant</h1>
                     <VowelConsonantCheckBox caseFilter={{lower,upper,ignore}} />
                     <PieChart />
-                    <p>{this.state.fileData}</p>
+                    <p className='fileData'>{this.state.fileData}</p>
                 </div>
             );
         }

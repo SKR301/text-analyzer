@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import BarChart from '../components/barChart';
 import CharFrequencyCheckBox from '../components/charFrequencyCheckBox';
+import '../css/component.css';
+import '../css/fileData.css';
 
 class charFrequency extends Component {
     constructor(props) {
@@ -108,18 +110,18 @@ class charFrequency extends Component {
         }
         if(this.state.fileData == ''){
             return (
-                <div>
+                <div className = 'component'>
                     <h1>Character frequency</h1>
                     <p>No file selected...</p><p>Go To Home to select file</p>
                 </div>
             );
         } else {
             return (
-                <div>
+                <div className = 'component'>
                     <h1>Character frequency</h1>
                     <CharFrequencyCheckBox charFilter={{alpha, alphanum, allchar}} caseFilter={{lower,upper,ignore,none}} sort={{characters,count}} />
                     <BarChart />
-                    <p>{this.state.fileData}</p>
+                    <p className='fileData'>{this.state.fileData}</p>
                 </div>
             );
         }

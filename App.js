@@ -19,7 +19,7 @@ class App extends Component {
 
     render = () => {
         return (
-            <Router>
+            <Router className='App'>
                 <div>
                     <ul className='navbarContainer'> 
                         <li className='nav-link'><Link className='link-text'  to={{ pathname: '/home', data: {sendFileData: this.getFileData} }}>Home</Link></li>
