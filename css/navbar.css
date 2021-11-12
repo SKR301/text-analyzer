@@ -10,11 +10,9 @@
 }
 
 .nav-link{
-    margin: 15px;
     height: 100%;
     width: 100%;
     text-align: center;
-    top: 50%;
     transition: 0.5s;
 } 
 .nav-link:hover{
@@ -26,6 +24,7 @@
 .link-text{
     color: #000000;
     font-size: 20px;
+    padding-top: 50%;
+    padding-bottom: 50%;
     text-decoration: none;
-    margin-top: 50%;
 }

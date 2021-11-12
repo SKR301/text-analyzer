@@ -23,22 +23,22 @@ class App extends Component {
                 <div>
                     <ul className='navbarContainer'> 
                         <li className='nav-link'>
-                            <Link className='' to={{ pathname: '/home', data: {sendFileData: this.getFileData} }}>
-                                <p className='link-text'>Home</p>
+                            <Link to={{ pathname: '/home', data: {sendFileData: this.getFileData} }}>
+                                <p className='link-text '>Home</p>
                             </Link>
                         </li>
                         <li className='nav-link'>
-                            <Link className='' to={{ pathname: '/charFrequency', data: {fileData: this.state.fileData} }}>
+                            <Link to={{ pathname: '/charFrequency', data: {fileData: this.state.fileData} }}>
                                 <p className='link-text'>Char Frequency</p>
                             </Link>
                         </li>
                         <li className='nav-link'>
-                            <Link className='' to={{ pathname: '/pairFrequency', data: {fileData: this.state.fileData} }}>
+                            <Link to={{ pathname: '/pairFrequency', data: {fileData: this.state.fileData} }}>
                                 <p className='link-text'>Pair Frequency</p>
                             </Link>
                         </li>
                         <li className='nav-link'>
-                            <Link className='' to={{ pathname: '/vowelVSconsonant', data: {fileData: this.state.fileData} }}>
+                            <Link to={{ pathname: '/vowelVSconsonant', data: {fileData: this.state.fileData} }}>
                                 <p className='link-text'>Vowel - Consonant</p>
                             </Link>
                         </li>
