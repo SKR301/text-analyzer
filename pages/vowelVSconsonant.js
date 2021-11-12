@@ -52,9 +52,11 @@ class VowelVSConsonant extends Component {
         const toggleFileDataDisplay=()=>{
             if(this.state.fileDataDsiplay){
                 document.getElementById('fileDataDisplay').style.display = 'none';
+                document.getElementById('fileDataToggleBtn').innerHTML = 'Show File Data';
                 this.state.fileDataDsiplay = false;
             } else {
                 document.getElementById('fileDataDisplay').style.display = 'block'
+                document.getElementById('fileDataToggleBtn').innerHTML = 'Hide File Data';
                 this.state.fileDataDsiplay = true;
             }
         }
@@ -71,7 +73,7 @@ class VowelVSConsonant extends Component {
                     <h1 className='heading'>Vowel VS Consonant</h1>
                     <VowelConsonantCheckBox caseFilter={{lower,upper,ignore}} />
                     <PieChart />
-                    <button onClick={toggleFileDataDisplay}>Show File Data</button>
+                    <button id='fileDataToggleBtn' onClick={toggleFileDataDisplay}>Hide File Data</button>
                     <p id='fileDataDisplay' className='fileData'>{this.state.fileData}</p>
                 </div>
             );

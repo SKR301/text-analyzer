@@ -112,13 +112,15 @@ class charFrequency extends Component {
         const toggleFileDataDisplay=()=>{
             if(this.state.fileDataDsiplay){
                 document.getElementById('fileDataDisplay').style.display = 'none';
+                document.getElementById('fileDataToggleBtn').innerHTML = 'Show File Data';
                 this.state.fileDataDsiplay = false;
             } else {
                 document.getElementById('fileDataDisplay').style.display = 'block'
+                document.getElementById('fileDataToggleBtn').innerHTML = 'Hide File Data';
                 this.state.fileDataDsiplay = true;
             }
         }
-        
+
         if(this.state.fileData == ''){
             return (
                 <div className = 'component'>
@@ -132,7 +134,7 @@ class charFrequency extends Component {
                     <h1 className='heading'>Character frequency</h1>
                     <CharFrequencyCheckBox charFilter={{alpha, alphanum, allchar}} caseFilter={{lower,upper,ignore,none}} sort={{characters,count}} />
                     <BarChart/>
-                    <button onClick={toggleFileDataDisplay}>Show File Data</button>
+                    <button id='fileDataToggleBtn' onClick={toggleFileDataDisplay}>Hide File Data</button>
                     <p id='fileDataDisplay' className='fileData'>{this.state.fileData}</p>
                 </div>
             );
