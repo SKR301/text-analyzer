@@ -3,6 +3,7 @@ import BarChart from '../components/barChart';
 import PairFrequencyCheckBox from '../components/pairFrequencyCheckBox';
 import '../css/component.css';
 import '../css/fileData.css';
+import '../css/pages.css';
 
 class pairFrequency extends Component {
     constructor(props) {
@@ -71,14 +72,14 @@ class pairFrequency extends Component {
         if(this.state.fileData == ''){
             return (
                 <div className = 'component'>
-                    <h1>Pair frequency</h1>
-                    <p>No file selected...</p><p>Go To Home to select file</p>
+                    <h1 className='heading'>Pair frequency</h1>
+                    <center><p>No file selected...</p><p>Go To Home to select file</p></center>
                 </div>
             );
         } else {
             return (
                 <div className = 'component'>
-                    <h1>Pair frequency</h1>
+                    <h1 className='heading'>Pair frequency</h1>
                     <PairFrequencyCheckBox charFilter={{first, none}} sort={{characters, count}} sendFirstChar={getFirstChar}/>
                     <BarChart />
                     <p className='fileData'>{this.state.fileData}</p>

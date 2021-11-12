@@ -3,6 +3,7 @@ import BarChart from '../components/barChart';
 import CharFrequencyCheckBox from '../components/charFrequencyCheckBox';
 import '../css/component.css';
 import '../css/fileData.css';
+import '../css/pages.css';
 
 class charFrequency extends Component {
     constructor(props) {
@@ -111,16 +112,16 @@ class charFrequency extends Component {
         if(this.state.fileData == ''){
             return (
                 <div className = 'component'>
-                    <h1>Character frequency</h1>
-                    <p>No file selected...</p><p>Go To Home to select file</p>
+                    <h1 className='heading'>Character frequency</h1>
+                    <center><p>No file selected...</p><p>Go To Home to select file</p></center>
                 </div>
             );
         } else {
             return (
                 <div className = 'component'>
-                    <h1>Character frequency</h1>
+                    <h1 className='heading'>Character frequency</h1>
                     <CharFrequencyCheckBox charFilter={{alpha, alphanum, allchar}} caseFilter={{lower,upper,ignore,none}} sort={{characters,count}} />
-                    <BarChart />
+                    <BarChart/>
                     <p className='fileData'>{this.state.fileData}</p>
                 </div>
             );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
+import '../css/pages.css';
 
 class BarChart extends Component {
     constructor(props){
@@ -21,7 +22,7 @@ class BarChart extends Component {
         let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.dataFields.category = "character";
         categoryAxis.title.text = "Characters";
-        categoryAxis.renderer.minGridDistance = 10;
+        categoryAxis.renderer.minGridDistance = 50;
 
         let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
         valueAxis.title.text = "Character Count";
@@ -36,7 +37,7 @@ class BarChart extends Component {
 
     render = () => {
         return (
-            <div>
+            <div className='analyzedOutput'>
                 <div id="chartdiv" style={{ width: 1500, height: 500}}></div>
             </div>
         );

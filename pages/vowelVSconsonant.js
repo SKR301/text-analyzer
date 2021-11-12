@@ -3,6 +3,7 @@ import PieChart from '../components/pieChart';
 import VowelConsonantCheckBox from '../components/vowelConsonantCheckBox';
 import '../css/component.css';
 import '../css/fileData.css';
+import '../css/pages.css';
 
 class VowelVSConsonant extends Component {
     constructor(props) {
@@ -51,14 +52,14 @@ class VowelVSConsonant extends Component {
         if(this.state.fileData == ''){
             return (
                 <div className = 'component'>
-                    <h1>Vowel VS Consonant</h1>
-                    <p>No file selected...</p><p>Go To Home to select file</p>
+                    <h1 className='heading'>Vowel VS Consonant</h1>
+                    <center><p>No file selected...</p><p>Go To Home to select file</p></center>
                 </div>
             );
         } else {
             return (
                 <div className = 'component'>
-                    <h1>Vowel VS Consonant</h1>
+                    <h1 className='heading'>Vowel VS Consonant</h1>
                     <VowelConsonantCheckBox caseFilter={{lower,upper,ignore}} />
                     <PieChart />
                     <p className='fileData'>{this.state.fileData}</p>
