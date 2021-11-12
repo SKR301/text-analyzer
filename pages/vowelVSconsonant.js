@@ -11,7 +11,7 @@ class VowelVSConsonant extends Component {
         if(this.props.history.location.data == undefined){
             this.state = {fileData: '', charFreq: ''};
         } else {
-            this.state = {fileData: this.props.history.location.data.fileData, charFreq: ''};
+            this.state = {fileData: this.props.history.location.data.fileData, charFreq: '', fileDataDsiplay: true};
         }
         this.getCharFreq = this.getCharFreq.bind(this);
     }
@@ -49,6 +49,15 @@ class VowelVSConsonant extends Component {
             var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z]/.test(char));
             this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join('').toLowerCase())});
         }
+        const toggleFileDataDisplay=()=>{
+            if(this.state.fileDataDsiplay){
+                document.getElementById('fileDataDisplay').style.display = 'none';
+                this.state.fileDataDsiplay = false;
+            } else {
+                document.getElementById('fileDataDisplay').style.display = 'block'
+                this.state.fileDataDsiplay = true;
+            }
+        }
         if(this.state.fileData == ''){
             return (
                 <div className = 'component'>
@@ -62,7 +71,8 @@ class VowelVSConsonant extends Component {
                     <h1 className='heading'>Vowel VS Consonant</h1>
                     <VowelConsonantCheckBox caseFilter={{lower,upper,ignore}} />
                     <PieChart />
-                    <p className='fileData'>{this.state.fileData}</p>
+                    <button onClick={toggleFileDataDisplay}>Show File Data</button>
+                    <p id='fileDataDisplay' className='fileData'>{this.state.fileData}</p>
                 </div>
             );
         }

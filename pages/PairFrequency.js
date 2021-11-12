@@ -11,7 +11,7 @@ class pairFrequency extends Component {
         if(this.props.history.location.data == undefined){
             this.state = {fileData: '', charFreq: ''};
         } else {
-            this.state = {fileData: this.props.history.location.data.fileData, charFreq: ''};
+            this.state = {fileData: this.props.history.location.data.fileData, charFreq: '', fileDataDsiplay: true};
         }
         this.getCharFreq = this.getCharFreq.bind(this);
     }
@@ -69,6 +69,15 @@ class pairFrequency extends Component {
         const count=()=>{
             this.setState({fileData: this.state.fileData, charFreq: new Map([...this.state.charFreq.entries()].sort((a, b) => b[1] - a[1]))});
         }
+        const toggleFileDataDisplay=()=>{
+            if(this.state.fileDataDsiplay){
+                document.getElementById('fileDataDisplay').style.display = 'none';
+                this.state.fileDataDsiplay = false;
+            } else {
+                document.getElementById('fileDataDisplay').style.display = 'block'
+                this.state.fileDataDsiplay = true;
+            }
+        }
         if(this.state.fileData == ''){
             return (
                 <div className = 'component'>
@@ -82,7 +91,8 @@ class pairFrequency extends Component {
                     <h1 className='heading'>Pair frequency</h1>
                     <PairFrequencyCheckBox charFilter={{first, none}} sort={{characters, count}} sendFirstChar={getFirstChar}/>
                     <BarChart />
-                    <p className='fileData'>{this.state.fileData}</p>
+                    <button onClick={toggleFileDataDisplay}>Show File Data</button>
+                    <p id='fileDataDisplay' className='fileData'>{this.state.fileData}</p>
                 </div>
             );
         }
