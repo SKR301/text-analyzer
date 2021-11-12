@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import VowelConsonantCheckBox from '../components/vowelConsonantCheckBox';
 import PieChart from '../components/pieChart';
+import VowelConsonantCheckBox from '../components/vowelConsonantCheckBox';
+import '../css/component.css';
+import '../css/fileData.css';
+import '../css/pages.css';
 
 class VowelVSConsonant extends Component {
     constructor(props) {
@@ -8,7 +11,7 @@ class VowelVSConsonant extends Component {
         if(this.props.history.location.data == undefined){
             this.state = {fileData: '', charFreq: ''};
         } else {
-            this.state = {fileData: this.props.history.location.data.fileData, charFreq: ''};
+            this.state = {fileData: this.props.history.location.data.fileData, charFreq: '', fileDataDsiplay: true};
         }
         this.getCharFreq = this.getCharFreq.bind(this);
     }
@@ -46,20 +49,32 @@ class VowelVSConsonant extends Component {
             var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z]/.test(char));
             this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join('').toLowerCase())});
         }
+        const toggleFileDataDisplay=()=>{
+            if(this.state.fileDataDsiplay){
+                document.getElementById('fileDataDisplay').style.display = 'none';
+                document.getElementById('fileDataToggleBtn').innerHTML = 'Show File Data';
+                this.state.fileDataDsiplay = false;
+            } else {
+                document.getElementById('fileDataDisplay').style.display = 'block'
+                document.getElementById('fileDataToggleBtn').innerHTML = 'Hide File Data';
+                this.state.fileDataDsiplay = true;
+            }
+        }
         if(this.state.fileData == ''){
             return (
-                <div>
-                    <h1>Vowel VS Consonant</h1>
-                    <p>No file selected...</p><p>Go To Home to select file</p>
+                <div className = 'component'>
+                    <h1 className='heading'>Vowel VS Consonant</h1>
+                    <center><p>No file selected...</p><p>Go To Home to select file</p></center>
                 </div>
             );
         } else {
             return (
-                <div>
-                    <h1>Vowel VS Consonant</h1>
+                <div className = 'component'>
+                    <h1 className='heading'>Vowel VS Consonant</h1>
                     <VowelConsonantCheckBox caseFilter={{lower,upper,ignore}} />
                     <PieChart />
-                    <p>{this.state.fileData}</p>
+                    <button id='fileDataToggleBtn' onClick={toggleFileDataDisplay}>Hide File Data</button>
+                    <p id='fileDataDisplay' className='fileData'>{this.state.fileData}</p>
                 </div>
             );
         }

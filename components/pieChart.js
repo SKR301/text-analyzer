@@ -25,7 +25,7 @@ class PieChart extends Component {
 
     render = () => {
         return (
-            <div>
+            <div className='analyzedOutput'>
                 <div id="chartdiv" style={{ width: 1500, height: 500}}></div>
             </div>
         );

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import BarChart from '../components/barChart';
 import PairFrequencyCheckBox from '../components/pairFrequencyCheckBox';
+import '../css/component.css';
+import '../css/fileData.css';
+import '../css/pages.css';
 
 class pairFrequency extends Component {
     constructor(props) {
@@ -8,7 +11,7 @@ class pairFrequency extends Component {
         if(this.props.history.location.data == undefined){
             this.state = {fileData: '', charFreq: ''};
         } else {
-            this.state = {fileData: this.props.history.location.data.fileData, charFreq: ''};
+            this.state = {fileData: this.props.history.location.data.fileData, charFreq: '', fileDataDsiplay: true};
         }
         this.getCharFreq = this.getCharFreq.bind(this);
     }
@@ -66,20 +69,32 @@ class pairFrequency extends Component {
         const count=()=>{
             this.setState({fileData: this.state.fileData, charFreq: new Map([...this.state.charFreq.entries()].sort((a, b) => b[1] - a[1]))});
         }
+        const toggleFileDataDisplay=()=>{
+            if(this.state.fileDataDsiplay){
+                document.getElementById('fileDataDisplay').style.display = 'none';
+                document.getElementById('fileDataToggleBtn').innerHTML = 'Show File Data';
+                this.state.fileDataDsiplay = false;
+            } else {
+                document.getElementById('fileDataDisplay').style.display = 'block'
+                document.getElementById('fileDataToggleBtn').innerHTML = 'Hide File Data';
+                this.state.fileDataDsiplay = true;
+            }
+        }
         if(this.state.fileData == ''){
             return (
-                <div>
-                    <h1>Pair frequency</h1>
-                    <p>No file selected...</p><p>Go To Home to select file</p>
+                <div className = 'component'>
+                    <h1 className='heading'>Pair frequency</h1>
+                    <center><p>No file selected...</p><p>Go To Home to select file</p></center>
                 </div>
             );
         } else {
             return (
-                <div>
-                    <h1>Pair frequency</h1>
+                <div className = 'component'>
+                    <h1 className='heading'>Pair frequency</h1>
                     <PairFrequencyCheckBox charFilter={{first, none}} sort={{characters, count}} sendFirstChar={getFirstChar}/>
                     <BarChart />
-                    <p>{this.state.fileData}</p>
+                    <button id='fileDataToggleBtn' onClick={toggleFileDataDisplay}>Hide File Data</button>
+                    <p id='fileDataDisplay' className='fileData'>{this.state.fileData}</p>
                 </div>
             );
         }
