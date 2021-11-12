@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SelectFile from '../components/selectFile';
+import '../css/selectFile.css';
 
 class Home extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class Home extends Component {
 
     render = () => {
         return (
-            <div>
+            <div className = 'selectFileBtn'>
                 <SelectFile sendFileData={this.getFileData}/>
                 <p>{this.state.fileData}</p>
             </div>

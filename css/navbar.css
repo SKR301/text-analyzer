@@ -1,11 +1,33 @@
-.container{
+.navbarContainer{
     display: flex;
-    justify-content:space-around;
-    list-style-type:none;
-    background-color: grey;
+    flex-direction: column;
+    list-style-type: none;
+    background-color: #59CBE8;
     padding: 20px;
+    margin-top: -10px;
+    width: 150px;
+    height: 100vh;
+
+    float: left;
 }
 
-.link{
-    color: white;
+.nav-link{
+    margin: 15px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transition: 0.5s;
+}
+.nav-link:hover{
+    background-color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.link-text{
+    color: #000000;
+    font-size: 20px;
+    text-decoration: none;
+    margin-top: 100px;
 }
