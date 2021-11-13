@@ -42,13 +42,13 @@ class charFrequency extends Component {
         const alpha=()=>{
             var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z]/.test(char));
             this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join(''))});
-            document.getElementById('characters').checked = false;
+            document.getElementById('character').checked = false;
             document.getElementById('count').checked = false;
         }
         const alphanum=()=>{
             var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z0-9]/.test(char));
             this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join(''))});
-            document.getElementById('characters').checked = false;
+            document.getElementById('character').checked = false;
             document.getElementById('count').checked = false;
             document.getElementById('none').checked = true;
         }
@@ -56,17 +56,17 @@ class charFrequency extends Component {
             var str = this.state.fileData.replace(/\s/g, '');
             this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str)});
             document.getElementById('none').checked = true;
-            document.getElementById('characters').checked = false;
+            document.getElementById('character').checked = false;
             document.getElementById('count').checked = false;
         }
         const lower=()=>{
             if(document.getElementById('alpha').checked){
                 var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-z]/.test(char));
                 this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join(''))});
-                document.getElementById('characters').checked = false;
+                document.getElementById('character').checked = false;
                 document.getElementById('count').checked = false;
             } else {
-                console.log('Only applicable for alpha');
+                alert('Only applicable for Character Filer: "Only Alphabets"');
                 document.getElementById('lower').checked = false;
             }
         }
@@ -74,10 +74,10 @@ class charFrequency extends Component {
             if(document.getElementById('alpha').checked){
                 var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[A-Z]/.test(char));
                 this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join(''))});
-                document.getElementById('characters').checked = false;
+                document.getElementById('character').checked = false;
                 document.getElementById('count').checked = false;
             } else {
-                console.log('Only applicable for alpha');
+                alert('Only applicable for Character Filer: "Only Alphabets"');
                 document.getElementById('upper').checked = false;
             }
         }
@@ -85,10 +85,10 @@ class charFrequency extends Component {
             if(document.getElementById('alpha').checked){
                 var str = this.state.fileData.replace(/\s/g, '').split('').filter(char => /[a-zA-Z]/.test(char));
                 this.setState({fileData: this.state.fileData, charFreq: this.getCharFreq(str.join('').toLowerCase())});
-                document.getElementById('characters').checked = false;
+                document.getElementById('character').checked = false;
                 document.getElementById('count').checked = false;
             } else {
-                console.log('Only applicable for alpha');
+                alert('Only applicable for Character Filer: "Only Alphabets"');
                 document.getElementById('ignore').checked = false;
             }
         }

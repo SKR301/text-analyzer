@@ -42,11 +42,6 @@ class App extends Component {
                                 <p className='link-text'>Vowel - Consonant</p>
                             </Link>
                         </li>
-                        <li className='nav-link'>
-                            <Link to={{ pathname: '/vowelVSconsonant', data: {fileData: this.state.fileData} }}>
-                                <p className='link-text'>Vowel - Consonant</p>
-                            </Link>
-                        </li>
                     </ul>
                 </div>
                 <Switch>

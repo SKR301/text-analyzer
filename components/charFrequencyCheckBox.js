@@ -23,7 +23,7 @@ class charFrequencyCheckBox extends Component {
                 </div>
                 <b>Sort By:</b>
                 <div id = 'sort'>
-                    <input type = 'radio' name = 'sort' id = 'characters' onChange ={this.props.sort.characters} />Characters
+                    <input type = 'radio' name = 'sort' id = 'character' onChange ={this.props.sort.characters} />Characters
                     <input type = 'radio' name = 'sort' id = 'count' onChange ={this.props.sort.count} />Count
                 </div>
             </div>
